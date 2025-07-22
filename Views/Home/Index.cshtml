@@ -1,0 +1,35 @@
+﻿@model List<RepositoryDesignPattern.Models.Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<a asp-controller="Home" asp-action="AddNew" class="btn-outline-primary">AddNew</a>
+<h2 class="form-control">Employee List</h2>
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>EmpID</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+             <tr>
+             <td>@item.Empid</td>
+             <td>@item.Empname</td>
+             <td>@item.Designation</td>
+             <td>@item.salary</td>
+             <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Empid">Edit</a></td>
+             <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Empid">Delete</a></td>
+             </tr>   
+            }
+        }
+    </tbody>
+</table>
+
+
